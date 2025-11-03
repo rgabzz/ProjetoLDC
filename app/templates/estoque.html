@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabela de Estoque</title>
+</head>
+<body>
+  <h1>Controle de Estoque</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Categoria</th>
+        <th>Produto</th>
+        <th>Quantidade em casa</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for lista in lista_estoque %}
+        <tr>
+            <td>{{ lista.categoria_nome }}</td>
+            <td>{{ lista.item_nome }}</td>
+            <td>{{ lista.disponivel_em_casa }}</td>
+            <td>{{ lista.status }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
+
+

@@ -1,23 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="{{ url_for('static',filename='/login/css/globals.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static',filename='/login/css/styleguide.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static',filename='/login/css/style.css') }}" />
 </head>
+
 <body>
-    <h1>Essa é a página de Login</h1>
-    <form method="post" action="{{ url_for('auth.login') }}">
+  <div class="JL-PC-tela-login" data-model-id="2:16">
+    <div class="login">
+      <div class="text-wrapper-3">Login</div>
+      <form action="{{ url_for('auth.login') }}" method="post">
         {{ form.hidden_tag() }}
-        <div class="mb-3">
-            {{ form.email.label() }}
-            {{ form.email() }}
+        <div class="input-e-mail">
+          <div class="lucide-mail"><img class="vector-2" src="{{ url_for('static',filename='/login/img/vector-1.svg') }}" /></div>
+          <input type="email" name="{{ form.email.name }}" value="{{ form.email.data or '' }}" placeholder="Email" >
         </div>
-        <div class="mb-3">
-            {{ form.senha.label() }}
-            {{ form.senha() }}
+
+        <div class="input-senha">
+          <div class="lucide-lock-keyhole"><img class="vector" src="{{ url_for('static',filename='/login/img/vector.svg') }}" /></div>
+          <input type="password" name="{{ form.senha.name }}" placeholder="Senha">
         </div>
-        {{ form.login_submit }}
-    </form>
+
+        <!-- Botão de login -->
+        <div class="boto-login">
+          <button type="submit" name="{{ form.login_submit.name }}" class="login">Login</button>
+        </div>
+
+      </form>
+
+      <!-- Login social -->
+      <div class="boto-google">
+        <img class="google" src="{{ url_for('static',filename='/login/img/google-1.png') }}" />
+      </div>
+
+      <div class="boto-facebook">
+        <div class="facebook"></div>
+        <img class="img" src="{{ url_for('static',filename='/login/img/facebook.png') }}" />
+      </div>
+
+      <div class="boto-apple">
+        <img class="apple" src="{{ url_for('static',filename='/login/img/apple-1.png') }}" />
+      </div>
+
+      <div class="login-with">
+        <div class="text-wrapper">Or login with</div>
+        <img class="line" src="{{ url_for('static',filename='/login/img/line-2.svg') }}" />
+        <img class="line-2" src="{{ url_for('static',filename='/login/img/line-2.svg') }}" />
+      </div>
+
+      <!-- Link para criar conta -->
+      <p class="n-o-tem-uma-conta">
+        <span class="span">Não tem uma conta? </span>
+        <span class="text-wrapper-2"><a href="{{ url_for('auth.cadastro') }}">Criar conta</a></span>
+      </p>
+
+      <!-- Logo dentro do login -->
+      <img class="jialist-logo" src="{{ url_for('static',filename='/cadastro/img/jialist-logo-1.png') }}" />
+    </div>
+
+    <!-- Elementos de decoração -->
+    <img class="JL-planta" src="{{ url_for('static',filename='/cadastro/img/jl-planta.png') }}" />
+    <div class="mensagem">
+      <img class="line-3" src="{{ url_for('static',filename='/cadastro/img/line-3.svg') }}" />
+      <div class="rectangle"></div>
+      <p class="boas-compras-come-am">
+        Boas compras começam com uma boa lista.
+      </p>
+    </div>
+
+    <div class="boas-vindas">
+      <div class="text-wrapper-8">Olá!</div>
+      <div class="text-wrapper-9">Boas-Vindas à JiaList</div>
+    </div>
+
+    <img class="JL-folha" src="{{ url_for('static',filename='/login/img/jl-folha.png') }}" />
+  </div>
 </body>
+
 </html>

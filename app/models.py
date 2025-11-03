@@ -23,7 +23,6 @@ class Listas(db.Model):
     id = db.Column(Integer,primary_key=True)
     usuario_id = db.Column(Integer, ForeignKey('usuarios.id', ondelete='CASCADE') ,nullable=False)
     titulo = db.Column(String(200), nullable=False)
-    descricao = db.Column(Text) 
     data_criada = db.Column(DateTime(),default=db.func.now())
     data_ultima_atualizacao = db.Column(DateTime(),default=db.func.now(),onupdate=db.func.now())
 
@@ -58,15 +57,15 @@ class Itens(db.Model):
     id = db.Column(Integer,primary_key=True)
     lista_id = db.Column(Integer, ForeignKey('listas.id', ondelete='CASCADE') ,nullable=False)
     nome = db.Column(String(200),nullable=False)
-    observacoes = db.Column(Text) 
+    usuario_id = db.Column(Integer, ForeignKey('usuarios.id', ondelete='CASCADE') ,nullable=False)
     quantidade = db.Column(Numeric(10,3),nullable=False,default=1)
     status = db.Column(Enum('pendente','comprado', name='status_enum'),default='pendente')
     categoria_id = db.Column(Integer, ForeignKey('categorias.id', ondelete='SET NULL') ,nullable=True)
     criado_em = db.Column(DateTime(),default=db.func.now(),onupdate=db.func.now())
     disponivel_em_casa = db.Column(Numeric(10,3),nullable=True,default=0)
-
     lista = db.relationship('Listas', backref=db.backref('itens', passive_deletes=True))
     categoria = db.relationship('Categorias', backref=db.backref('itens', passive_deletes=True))
+    usuario = db.relationship('Usuarios', backref=db.backref('itens', passive_deletes=True))
 
     def __repr__(self):
         return f'<Item: {self.nome}>'
@@ -75,7 +74,7 @@ class Itens(db.Model):
 # Formulários de Login
 from flask_wtf import FlaskForm
 from wtforms import StringField,EmailField,PasswordField,SubmitField
-from wtforms.validators import DataRequired,Email,Length
+from wtforms.validators import DataRequired,Email,Length,EqualTo
 
 class FormLogin(FlaskForm):
     
@@ -88,4 +87,5 @@ class FormCadastro(FlaskForm):
     nome = StringField('nome',validators=[DataRequired(),Length(min=1,max=120)])
     email = EmailField('email',validators=[DataRequired(),Email(),Length(min=1,max=255)])
     senha = PasswordField('senha',validators=[DataRequired(),Length(min=1,max=255)])
-    cadastro_submit = SubmitField('Cadastro')
+    confirmar_senha = PasswordField('Confirmar Senha', validators=[DataRequired(),EqualTo('senha', message='As senhas devem coincidir')])
+    cadastro_submit = SubmitField('Cadastrar')

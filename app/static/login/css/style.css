@@ -1,0 +1,511 @@
+.JL-PC-tela-login {
+  background-color: var(--tokens-base-background-prim-ria);
+  width: 100%;
+  min-width: 1310px;
+  min-height: 799px;
+  position: relative;
+}
+
+.JL-PC-tela-login .login {
+  position: absolute;
+  top: 38px;
+  left: 678px;
+  width: 602px;
+  height: 717px;
+  background-color: var(--tokens-base-background-window-prim-ria);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.JL-PC-tela-login .jialist-logo {
+  position: absolute;
+  top: 636px;
+  left: 505px;
+  width: 80px;
+  height: 67px;
+  aspect-ratio: 1.19;
+}
+
+.JL-PC-tela-login .boto-google {
+  display: flex;
+  width: 70px;
+  height: 50px;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 15px;
+  position: absolute;
+  top: 579px;
+  left: 158px;
+  background-color: #fffdfd;
+  border-radius: 15px;
+}
+
+.JL-PC-tela-login .google {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.JL-PC-tela-login .boto-facebook {
+  position: absolute;
+  top: 572px;
+  left: 254px;
+  width: 70px;
+  height: 59px;
+}
+
+.JL-PC-tela-login .facebook {
+  position: absolute;
+  top: 7px;
+  left: 0;
+  width: 70px;
+  height: 50px;
+  background-color: #fffdfd;
+  border-radius: 15px;
+}
+
+.JL-PC-tela-login .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 59px;
+  aspect-ratio: 1.18;
+}
+
+.JL-PC-tela-login .boto-apple {
+  display: flex;
+  width: 70px;
+  height: 50px;
+  align-items: center;
+  gap: 10px;
+  padding: 0px 9px;
+  position: absolute;
+  top: 579px;
+  left: 350px;
+  background-color: #fffdfd;
+  border-radius: 15px;
+}
+
+.JL-PC-tela-login .apple {
+  position: relative;
+  width: 49px;
+  height: 49px;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.JL-PC-tela-login .login-with {
+  position: absolute;
+  top: 528px;
+  left: calc(50.00% - 167px);
+  width: 315px;
+  height: 22px;
+}
+
+.JL-PC-tela-login .text-wrapper {
+  position: absolute;
+  top: 0;
+  left: calc(50.00% - 44px);
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Open Sans", Helvetica;
+  font-weight: 700;
+  color: #b0b0b0;
+  font-size: 16px;
+  letter-spacing: 0.64px;
+  line-height: normal;
+}
+
+.JL-PC-tela-login .line {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 85px;
+  height: 2px;
+}
+
+.JL-PC-tela-login .line-2 {
+  position: absolute;
+  top: 10px;
+  left: 228px;
+  width: 85px;
+  height: 2px;
+}
+
+/* Botão de login dentro da tela de login */
+.JL-PC-tela-login .boto-login {
+  display: flex;
+  width: 363px;
+  height: 53px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  position: absolute;
+  top: 430px;
+  left: 109px;
+  background-color: #6ab472;
+  border-radius: 50px;
+}
+
+.JL-PC-tela-login .boto-login button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 50px;
+  background-color: #6ab472; 
+  font-family: "Open Sans", Helvetica;
+  font-weight: 700;
+  font-size: 24px;
+  color: #e4ffe7; /* texto visível e padronizado */
+  letter-spacing: 0.96px;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+
+.JL-PC-tela-login .boto-login button:hover {
+  background-color: #3c8250; 
+  transform: translateY(-5px);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 4px 8px 0px;
+}
+
+.JL-PC-tela-login .div {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Open Sans", Helvetica;
+  font-weight: 700;
+  color: #e4ffe7;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0.96px;
+  line-height: normal;
+}
+
+.JL-PC-tela-login .n-o-tem-uma-conta {
+  position: absolute;
+  top: calc(50.00% - 14px);
+  left: 202px;
+  width: 251px;
+  height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Open Sans", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 14px;
+  letter-spacing: 0.56px;
+  line-height: normal;
+}
+
+.JL-PC-tela-login .span {
+  font-weight: 700;
+  color: #b0b0b0;
+  letter-spacing: 0.08px;
+}
+
+.JL-PC-tela-login .text-wrapper-2 > a{
+  font-weight: 800;
+  color: #6ab472;
+  letter-spacing: 0.08px;
+}
+
+.JL-PC-tela-login .text-wrapper-3 {
+  position: absolute;
+  top: 94px;
+  left: 107px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", Helvetica;
+  font-weight: 700;
+  color: var(--tokens-base-texto-window-segunda);
+  font-size: 47px;
+  letter-spacing: 1.88px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.JL-PC-tela-login .input-senha {
+  position: absolute;
+  top: 280px;
+  left: 109px;
+  width: 363px;
+  height: 53px;
+  display: flex;
+  gap: 22px;
+  background-color: var(--tokens-base-background-caixa-input);
+  border-radius: 50px;
+}
+
+.JL-PC-tela-login .lucide-lock-keyhole {
+  margin-top: 15px;
+  width: 21px;
+  height: 22px;
+  position: relative;
+  margin-left: 25px;
+}
+
+.JL-PC-tela-login .vector {
+  position: absolute;
+  width: 75.00%;
+  height: 83.33%;
+  top: 4.92%;
+  left: 8.93%;
+}
+
+.JL-PC-tela-login .text-wrapper-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -1px;
+  height: 22px;
+  width: 49px;
+  align-self: center;
+  font-family: "Open Sans", Helvetica;
+  font-weight: 400;
+  color: var(--tokens-base-texto-input-sele-o);
+  font-size: 16px;
+  letter-spacing: 0.64px;
+  line-height: normal;
+}
+
+.JL-PC-tela-login .input-e-mail {
+  position: absolute;
+  top: 196px;
+  left: 109px;
+  width: 363px;
+  height: 53px;
+  display: flex;
+  gap: 21px;
+  background-color: var(--tokens-base-background-caixa-input);
+  border-radius: 50px;
+  font-family: "Open Sans", Helvetica;
+  font-weight: 400;
+  color: var(--tokens-base-texto-input-sele-o);
+  font-size: 16px;
+  letter-spacing: 0.64px;
+  line-height: normal;
+}
+
+.JL-PC-tela-login .lucide-mail {
+  margin-top: 17px;
+  width: 22px;
+  height: 20px;
+  position: relative;
+  margin-left: 23px;
+}
+
+
+
+input[type="email"] {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-weight: 400;
+  color: var(--tokens-base-texto-input-sele-o);
+  font-size: 16px;
+  letter-spacing: 0.64px;
+}
+
+input[type="password"] {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-weight: 400;
+  color: var(--tokens-base-texto-input-sele-o);
+  font-size: 16px;
+  letter-spacing: 0.64px;
+}
+
+
+.JL-PC-tela-login .vector-2 {
+  position: absolute;
+  width: 83.33%;
+  height: 66.67%;
+  top: 12.92%;
+  left: 4.92%;
+}
+
+.JL-PC-tela-login .text-wrapper-5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  height: 36px;
+  width: 95px;
+  align-self: center;
+  font-family: "Open Sans", Helvetica;
+  font-weight: 400;
+  color: var(--tokens-base-texto-input-sele-o);
+  font-size: 16px;
+  letter-spacing: 0.64px;
+  line-height: normal;
+}
+
+.JL-PC-tela-login .JL-planta {
+  position: absolute;
+  top: 396px;
+  left: 476px;
+  width: 301px;
+  height: 381px;
+  aspect-ratio: 0.79;
+}
+
+.JL-PC-tela-login .mensagem {
+  position: absolute;
+  top: 526px;
+  left: 132px;
+  width: 364px;
+  height: 146px;
+}
+
+.JL-PC-tela-login .line-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 146px;
+}
+
+.JL-PC-tela-login .rectangle {
+  position: absolute;
+  top: 6px;
+  left: 40px;
+  width: 322px;
+  height: 130px;
+  background-color: #a1f1aa57;
+  border-radius: 30px;
+}
+
+.JL-PC-tela-login .boas-compras-come-am {
+  position: absolute;
+  top: 15px;
+  left: 67px;
+  width: 285px;
+  height: 111px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Open Sans", Helvetica;
+  font-weight: 400;
+  color: #3c8250;
+  font-size: 27px;
+  letter-spacing: 1.08px;
+  line-height: normal;
+}
+
+.JL-PC-tela-login .text-wrapper-6 {
+  font-weight: 700;
+  letter-spacing: 0.29px;
+}
+
+.JL-PC-tela-login .text-wrapper-7 {
+  letter-spacing: 0.29px;
+}
+
+.JL-PC-tela-login .boas-vindas {
+  position: absolute;
+  top: 282px;
+  left: 82px;
+  width: 398px;
+  height: 175px;
+  display: flex;
+  flex-direction: column;
+}
+
+.JL-PC-tela-login .text-wrapper-8 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 197px;
+  height: 127px;
+  font-family: "Open Sans", Helvetica;
+  font-weight: 700;
+  color: #fffdfd;
+  font-size: 93px;
+  letter-spacing: 3.72px;
+  line-height: normal;
+}
+
+.JL-PC-tela-login .text-wrapper-9 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 7px;
+  width: 387px;
+  height: 48px;
+  font-family: "Open Sans", Helvetica;
+  font-weight: 700;
+  color: #e4ffe7;
+  font-size: 35px;
+  letter-spacing: 1.40px;
+  line-height: normal;
+}
+
+
+
+.JL-PC-tela-login .JL-folha {
+  transform-origin: top right;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 410px;
+  height: 322px;
+  aspect-ratio: 1.04;
+  animation: 
+    balanco-rotacao 4s ease-in-out infinite,
+    balanco-movimento 5.5s ease-in-out infinite;
+}
+
+@keyframes balanco-rotacao {
+  0% { transform: rotate(0deg); }
+  30% { transform: rotate(6deg); }
+  60% { transform: rotate(-1.5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes balanco-movimento {
+  0% { 
+    transform: translate(0, 0) rotate(0deg); 
+  }
+  50% { 
+    transform: translate(-5px, 3px) rotate(1.5deg); 
+  }
+  100% { 
+    transform: translate(0, 0) rotate(0deg); 
+  }
+}
+
+
+.JL-PC-tela-login .boto-login button.login {
+  position: static !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: none !important;
+  border-radius: 50px !important;
+  background-color: #6ab472 !important;
+  color: #e4ffe7 !important;
+  font-family: "Open Sans", Helvetica !important;
+  font-weight: 700 !important;
+  font-size: 24px !important;
+  letter-spacing: 0.96px !important;
+  text-align: center !important;
+  cursor: pointer !important;
+
+  box-shadow: none !important;
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}

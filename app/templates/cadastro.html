@@ -1,27 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Essa é a página de Cadastro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="{{ url_for('static',filename='/cadastro/css/globals.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static',filename='/cadastro/css/styleguide.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static',filename='/cadastro/css/style.css') }}" />
 </head>
+
 <body>
-    <h1>Essa é a página de Cadastro</h1>
-    <form method="post">
+  <div class="JL-PC-tela-cadastro" data-model-id="34:20">
+    <div class="cadastro">
+      <div class="text-wrapper">Cadastro</div>
+      <form action="{{ url_for('auth.cadastro') }}" method="post">
         {{ form.hidden_tag() }}
-        <div class="mb-3">
-            {{ form.nome.label() }}
-            {{ form.nome() }}
+        <div class="input-e-mail">
+          <div class="lucide-mail"><img class="vector" src="{{ url_for('static',filename='/cadastro/img/vector-5.svg') }}" /></div>
+          {{ form.email(placeholder="Email") }}
         </div>
-        <div class="mb-3">
-            {{ form.email.label() }}
-            {{ form.email() }}
+        <div class="input-usuario">
+          <div class="lucide-user-round"><img class="img" src="{{ url_for('static',filename='/cadastro/img/vector-4.svg') }}" /></div>
+          {{ form.nome(placeholder="Usuário") }}
         </div>
-        <div class="mb-3">
-            {{ form.senha.label() }}
-            {{ form.senha() }}
+        <div class="div-2">
+          <div class="lucide-lock-keyhole"><img class="vector-2" src="{{ url_for('static',filename='/cadastro/img/vector-2.svg') }}" /></div>
+          {{ form.senha(placeholder="Senha") }}
         </div>
-    {{ form.cadastro_submit() }}
-    </form>
+        <div class="div-2">
+          <div class="lucide-lock-keyhole"><img class="vector-2" src="{{ url_for('static',filename='/cadastro/img/vector-2.svg') }}" /></div>
+          {{ form.confirmar_senha(placeholder="Confirmar Senha") }}
+          
+            {% for error in form.confirmar_senha.errors %}
+                <small style="color:red;">{{ error }}</small>
+            {% endfor %}
+          
+        </div>
+        <div class="boto-login"> <button type="submit" name="{{ form.cadastro_submit.name }}" class="login">Cadastrar</button></div>
+      </form>
+      <img class="jialist-logo" src="{{ url_for('static',filename='/cadastro/img/jialist-logo-1.png') }}" />
+    </div>
+    <img class="JL-planta" src="{{ url_for('static',filename='/cadastro/img/jl-planta.png') }}" />
+    <div class="mensagem">
+      <img class="line" src="{{ url_for('static',filename='/cadastro/img/line-3.svg') }}" />
+      <div class="rectangle"></div>
+      <p class="comece-agora-a">Comece agora a organizar suas compras com praticidade.</p>
+    </div>
+    <div class="boas-vindas">
+      <div class="text-wrapper-6">Olá!</div>
+      <div class="text-wrapper-7">Boas-Vindas à JiaList</div>
+    </div>
+    <img class="JL-folha" src="{{ url_for('static',filename='/cadastro/img/jl-folha.png') }}" />
+  </div>
 </body>
+
 </html>

@@ -23,8 +23,10 @@ def create_app():
 
     from app.routes import main_bp
     from app.auth.routes import auth_bp
+    from app.lists.routes import list_bp
 
     app.register_blueprint(main_bp)
     app.register_blueprint(auth_bp)
+    app.register_blueprint(list_bp)
 
     return app

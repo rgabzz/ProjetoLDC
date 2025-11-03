@@ -2,7 +2,7 @@ from flask import render_template,redirect,url_for,flash
 from flask_login import login_user,logout_user,login_required
 from app import login_manager,db
 from app.auth import auth_bp
-from app.models import Usuarios,FormCadastro,FormLogin
+from app.models import Usuarios,FormCadastro,FormLogin,Listas
 from werkzeug.security import generate_password_hash,check_password_hash
 
 @auth_bp.route('/login', methods=['GET','POST'])
@@ -17,6 +17,8 @@ def login():
             login_user(usuario)
 
             return redirect(url_for('main.index'))
+        
+    # Fazer as mensagens de erro com flash
 
 
     return render_template('login.html',form=form)
@@ -39,10 +41,17 @@ def cadastro():
             db.session.add(novo_usuario)
             db.session.commit()
 
+            nova_lista = Listas(usuario_id=novo_usuario.id,titulo='Estoque')
+            db.session.add(nova_lista)
+            db.session.commit()
+
             return redirect(url_for('auth.login'))
+        
+    # Fazer as mensagens de erro com flash
 
     return render_template('cadastro.html',form=form)
 
+ # Fazer as mensagens flash de logout
 @auth_bp.route('/logout')
 def logout():
     logout_user()

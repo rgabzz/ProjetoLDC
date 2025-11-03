@@ -1,0 +1,55 @@
+:root {
+  --primary-verde-verde-escuro: rgba(60, 130, 80, 1);
+  --primary-verde-verde-m-dio: rgba(83, 154, 103, 1);
+  --primary-verde-verde-natural: rgba(106, 180, 114, 1);
+  --primary-verde-verde-vivo: rgba(90, 193, 120, 1);
+  --primary-verde-verde-claro: rgba(133, 214, 142, 1);
+  --primary-verde-verde-menta: rgba(161, 241, 170, 1);
+  --primary-verde-verde-suave: rgba(181, 244, 188, 1);
+  --primary-verde-verde-p-lido: rgba(228, 255, 231, 1);
+  --primary-cinza-cinza-escuro: rgba(99, 99, 99, 1);
+  --primary-cinza-cinza-m-dio: rgba(176, 176, 176, 1);
+  --primary-cinza-cinza-claro: rgba(229, 229, 229, 1);
+  --primary-amarelo-amarelo-claro: rgba(236, 208, 68, 1);
+  --primary-base-branco: rgba(255, 255, 255, 1);
+  --primary-base-preto: rgba(0, 0, 0, 1);
+  --tokens-base-background-prim-ria: var(--primary-verde-verde-vivo);
+  --tokens-base-background-window-prim-ria: var(--primary-verde-verde-p-lido);
+  --tokens-base-background-window-segunda: var(--primary-base-branco);
+  --tokens-base-background-caixa-input: var(--primary-base-branco);
+  --tokens-base-texto-input-sele-o: var(--primary-cinza-cinza-m-dio);
+  --tokens-home-background-icons-home: var(--primary-base-branco);
+  --tokens-windows-icons-window-home-estoque-listas: var(
+    --primary-verde-verde-claro
+  );
+  --tokens-windows-texto-icons-window-estoque-listas: var(
+    --primary-cinza-cinza-m-dio
+  );
+  --tokens-windows-texto-titulos-icon-window-estoque-listas: var(
+    --primary-verde-verde-escuro
+  );
+  --tokens-windows-icons-bot-es-window-estoque-listas: var(
+    --primary-verde-verde-vivo
+  );
+  --tokens-windows-background-icons-caixas-window-estoque-listas: var(
+    --primary-base-branco
+  );
+  --tokens-windows-icons-texto-window-home-estoque-listas: var(
+    --primary-base-branco
+  );
+  --tokens-windows-icons-home-estoque-listas: var(--primary-cinza-cinza-escuro);
+  --tokens-windows-texto-icons-home-window-estoque-listas: var(
+    --primary-base-branco
+  );
+  --tokens-windows-icons-home-window-estoque-listas: var(
+    --primary-verde-verde-m-dio
+  );
+  --tokens-home-texto-icons-home-op-es: var(--primary-verde-verde-p-lido);
+  --tokens-home-texto-icons-home-perfil: var(--primary-cinza-cinza-m-dio);
+  --tokens-home-texto-titulos-windows-home: var(--primary-verde-verde-escuro);
+  --tokens-home-icons-window-home-estoque: var(--primary-verde-verde-menta);
+  --tokens-home-icons-windows-home: var(--primary-verde-verde-vivo);
+  --tokens-base-texto-window-segunda: var(--primary-verde-verde-m-dio);
+  --tokens-base-texto-background-prim-ria: var(--primary-verde-verde-p-lido);
+  --tokens-base-texto-icons-input-window: var(--primary-cinza-cinza-claro);
+}
