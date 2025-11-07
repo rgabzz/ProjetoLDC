@@ -1,4 +1,4 @@
-from app.models import Itens,Listas,Categorias,Usuarios,db
+from app.models import Itens,Listas,Categorias,Usuarios,RelacaoItensListas,db
 from flask_login import current_user
 
 def get_estoque():
@@ -9,7 +9,8 @@ def get_estoque():
         Categorias.nome.label('categoria_nome')
     )
     .join(Categorias, Itens.categoria_id == Categorias.id)
-    .join(Listas, Listas.id == Itens.lista_id)
+    .join(RelacaoItensListas, RelacaoItensListas.item_id == Itens.id)
+    .join(Listas, Listas.id == RelacaoItensListas.lista_id)
     .filter(Itens.usuario_id == current_user.id)
     .filter(Listas.titulo == 'Estoque')
     .filter(Listas.usuario_id == current_user.id)

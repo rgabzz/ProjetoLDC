@@ -53,7 +53,6 @@ DROP TABLE IF EXISTS `itens`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `itens` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `lista_id` int NOT NULL,
   `usuario_id` int NOT NULL,
   `nome` varchar(200) NOT NULL,
   `quantidade` decimal(10,3) NOT NULL DEFAULT '1.000',
@@ -62,10 +61,8 @@ CREATE TABLE `itens` (
   `criado_em` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `disponivel_em_casa` decimal(10,3) DEFAULT '0.000',
   PRIMARY KEY (`id`),
-  KEY `lista_id` (`lista_id`),
   KEY `categoria_id` (`categoria_id`),
   KEY `usuario_id` (`usuario_id`),
-  CONSTRAINT `itens_ibfk_1` FOREIGN KEY (`lista_id`) REFERENCES `listas` (`id`) ON DELETE CASCADE,
   CONSTRAINT `itens_ibfk_2` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`) ON DELETE SET NULL,
   CONSTRAINT `itens_ibfk_3` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -77,7 +74,7 @@ CREATE TABLE `itens` (
 
 LOCK TABLES `itens` WRITE;
 /*!40000 ALTER TABLE `itens` DISABLE KEYS */;
-INSERT INTO `itens` VALUES (4,1,3,'Arroz 5kg',2.000,'pendente',1,'2025-11-02 21:02:38',1.000);
+INSERT INTO `itens` VALUES (4,3,'Arroz 5kg',2.000,'pendente',1,'2025-11-02 21:02:38',1.000);
 /*!40000 ALTER TABLE `itens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,6 +105,35 @@ LOCK TABLES `listas` WRITE;
 /*!40000 ALTER TABLE `listas` DISABLE KEYS */;
 INSERT INTO `listas` VALUES (1,3,'Estoque','2025-11-02 21:01:52','2025-11-02 21:01:52'),(2,4,'Estoque','2025-11-03 20:03:56','2025-11-03 20:03:56');
 /*!40000 ALTER TABLE `listas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `listas_itens`
+--
+
+DROP TABLE IF EXISTS `listas_itens`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `listas_itens` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `lista_id` int NOT NULL,
+  `item_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `lista_item_unico` (`lista_id`,`item_id`),
+  KEY `item_id` (`item_id`),
+  CONSTRAINT `listas_itens_ibfk_1` FOREIGN KEY (`lista_id`) REFERENCES `listas` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `listas_itens_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `itens` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `listas_itens`
+--
+
+LOCK TABLES `listas_itens` WRITE;
+/*!40000 ALTER TABLE `listas_itens` DISABLE KEYS */;
+INSERT INTO `listas_itens` VALUES (1,1,4);
+/*!40000 ALTER TABLE `listas_itens` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -148,4 +174,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-11-03 17:44:30
+-- Dump completed on 2025-11-07 15:24:01

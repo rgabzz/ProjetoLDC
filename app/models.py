@@ -27,6 +27,7 @@ class Listas(db.Model):
     data_ultima_atualizacao = db.Column(DateTime(),default=db.func.now(),onupdate=db.func.now())
 
     usuario = db.relationship('Usuarios', backref=db.backref('listas', passive_deletes=True))
+    itens = db.relationship('Itens',secondary='listas_itens',back_populates='listas')
 
     '''
         db.relationship('Usuario') -> Cria uma relação dessa tabela com a outra, podendo pesquisar o dono 
@@ -35,6 +36,10 @@ class Listas(db.Model):
 
         backref=db.backref('listas', passive_deletes=True) -> Cria um atributo que permite ver as listas de um usuário pela tabela de Usuario e o passive_deletes garante q o sql_alchemy não tente deletar uma linha da tabela sozinha, que o proprio banco vai cuidar disso.
         - usuario.listas
+
+        secondary='listas_itens -> Informa ao SQLAlchemy que a ligação entre Listas e Itens é feita através da tabela intermediária "listas_itens" (tabela de associação).
+
+        back_populates='listas' -> Conecta o outro lado da relação, que deve estar definido dentro da classe Itens 
     '''
 
     def __repr__(self):
@@ -55,7 +60,6 @@ class Itens(db.Model):
     __tablename__ = 'itens'
 
     id = db.Column(Integer,primary_key=True)
-    lista_id = db.Column(Integer, ForeignKey('listas.id', ondelete='CASCADE') ,nullable=False)
     nome = db.Column(String(200),nullable=False)
     usuario_id = db.Column(Integer, ForeignKey('usuarios.id', ondelete='CASCADE') ,nullable=False)
     quantidade = db.Column(Numeric(10,3),nullable=False,default=1)
@@ -63,13 +67,20 @@ class Itens(db.Model):
     categoria_id = db.Column(Integer, ForeignKey('categorias.id', ondelete='SET NULL') ,nullable=True)
     criado_em = db.Column(DateTime(),default=db.func.now(),onupdate=db.func.now())
     disponivel_em_casa = db.Column(Numeric(10,3),nullable=True,default=0)
-    lista = db.relationship('Listas', backref=db.backref('itens', passive_deletes=True))
+    lista = db.relationship('Listas', secondary='listas_itens', back_populates='itens')
     categoria = db.relationship('Categorias', backref=db.backref('itens', passive_deletes=True))
     usuario = db.relationship('Usuarios', backref=db.backref('itens', passive_deletes=True))
+    listas = db.relationship('Listas', secondary='listas_itens', back_populates='itens')
 
     def __repr__(self):
         return f'<Item: {self.nome}>'
 
+class RelacaoItensListas(db.Model):
+    __tablename__ = 'listas_itens'
+
+    id = db.Column(Integer,primary_key=True)
+    lista_id = db.Column(Integer, ForeignKey('listas.id', ondelete='CASCADE') ,nullable=False) 
+    item_id = db.Column(Integer, ForeignKey('itens.id', ondelete='CASCADE') ,nullable=False) 
 
 # Formulários de Login
 from flask_wtf import FlaskForm
