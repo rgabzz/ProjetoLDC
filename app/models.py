@@ -67,7 +67,6 @@ class Itens(db.Model):
     categoria_id = db.Column(Integer, ForeignKey('categorias.id', ondelete='SET NULL') ,nullable=True)
     criado_em = db.Column(DateTime(),default=db.func.now(),onupdate=db.func.now())
     disponivel_em_casa = db.Column(Numeric(10,3),nullable=True,default=0)
-    lista = db.relationship('Listas', secondary='listas_itens', back_populates='itens')
     categoria = db.relationship('Categorias', backref=db.backref('itens', passive_deletes=True))
     usuario = db.relationship('Usuarios', backref=db.backref('itens', passive_deletes=True))
     listas = db.relationship('Listas', secondary='listas_itens', back_populates='itens')
