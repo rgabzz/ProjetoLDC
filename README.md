@@ -115,7 +115,7 @@ http://localhost:5000
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍💻 Desenvolvimento
 
 **Projeto desenvolvido para fins acadêmicos**  
 
