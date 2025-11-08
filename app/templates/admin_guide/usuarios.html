@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_guide/css/bootstrap.css') }}">
+</head>
+<body>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Nickname</th>
+      <th scope="col">Email</th>
+      <th scope="col">Cargo</th>
+      <th scope="col">Criado_em</th>
+      <th scope="col">senha_hash</th>
+      <th scope="col">Buttons</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for usuario in lista_usuarios %}
+    <tr>
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.nome }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.cargo }}</td>
+        <td>{{ usuario.criado_em }}</td>
+        <td>{{ usuario.senha_hash[0:40] }}</td>
+        <td><a href="{{ url_for('painel.deletar_usuario', id=usuario.id) }}" class="btn btn-danger">Deletar</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</body>
+</html>

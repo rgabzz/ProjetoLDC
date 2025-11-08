@@ -24,14 +24,11 @@ DROP TABLE IF EXISTS `categorias`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categorias` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `usuario_id` int NOT NULL,
   `nome` varchar(60) NOT NULL,
   `criado_em` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `nome` (`nome`),
-  KEY `usuario_id` (`usuario_id`),
-  CONSTRAINT `categorias_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `nome` (`nome`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +37,7 @@ CREATE TABLE `categorias` (
 
 LOCK TABLES `categorias` WRITE;
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
-INSERT INTO `categorias` VALUES (1,3,'Alimentos','2025-11-02 21:09:10');
+INSERT INTO `categorias` VALUES (1,'Alimentos','2025-11-02 21:09:10'),(3,'Eletrodomésticos','2025-11-08 20:08:36'),(4,'Bebidas','2025-11-08 20:28:43'),(5,'Limpeza','2025-11-08 20:28:48'),(6,'Higiene pessoal','2025-11-08 20:28:52'),(7,'Cozinha','2025-11-08 20:29:00'),(8,'Banheiro','2025-11-08 20:29:02'),(9,'Lavanderia','2025-11-08 20:29:05'),(10,'Escritório','2025-11-08 20:29:07'),(11,'Eletrônicos','2025-11-08 20:29:10'),(12,'Ferramentas','2025-11-08 20:29:14'),(13,'Jardinagem','2025-11-08 20:29:17'),(14,'Pet shop','2025-11-08 20:29:20'),(15,'Farmácia','2025-11-08 20:29:22'),(16,'Roupas','2025-11-08 20:29:24'),(17,'Calçados','2025-11-08 20:29:27'),(18,'Beleza e cuidados','2025-11-08 20:29:30'),(19,'Decoração','2025-11-08 20:29:32'),(20,'Automotivo','2025-11-08 20:29:35'),(21,'Brinquedos','2025-11-08 20:29:37'),(22,'Papelaria','2025-11-08 20:29:41'),(23,'Utensílios domésticos','2025-11-08 20:29:44'),(25,'Lazer e esportes','2025-11-08 20:31:08'),(26,'Manutenção da casa','2025-11-08 20:31:12');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +91,7 @@ CREATE TABLE `listas` (
   PRIMARY KEY (`id`),
   KEY `usuario_id` (`usuario_id`),
   CONSTRAINT `listas_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +100,7 @@ CREATE TABLE `listas` (
 
 LOCK TABLES `listas` WRITE;
 /*!40000 ALTER TABLE `listas` DISABLE KEYS */;
-INSERT INTO `listas` VALUES (1,3,'Estoque','2025-11-02 21:01:52','2025-11-02 21:01:52'),(2,4,'Estoque','2025-11-03 20:03:56','2025-11-03 20:03:56');
+INSERT INTO `listas` VALUES (1,3,'Estoque','2025-11-02 21:01:52','2025-11-02 21:01:52'),(2,4,'Estoque','2025-11-03 20:03:56','2025-11-03 20:03:56'),(4,6,'Estoque','2025-11-08 20:20:09','2025-11-08 20:20:09');
 /*!40000 ALTER TABLE `listas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -152,7 +149,7 @@ CREATE TABLE `usuarios` (
   `cargo` enum('admin','membro') NOT NULL DEFAULT 'membro',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -161,7 +158,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (3,'admin','admin@admin.com','scrypt:32768:8:1$v51fvv6i7EJSIZVm$cd5b9ef2647b3e3a4c231ea060e53ce0901bb8094690d51cb77705b094887c2bc84fcdae3c51f49e2f712f83c9d8f5e76141765b8bed9adc0661bee3922a4919','2025-11-02 21:01:52','admin'),(4,'teste2','teste2@teste.com','scrypt:32768:8:1$rwAhAI1MVcf6dRoz$6a3a3d708fe26cce619dfb254753342a44b966729cf7a32d859098e4d12afea603ff4d95ae96f76f975c365f4f0edf7736846797b7cf778d119780c5ae566f7b','2025-11-03 20:03:56','membro');
+INSERT INTO `usuarios` VALUES (3,'admin','admin@admin.com','scrypt:32768:8:1$v51fvv6i7EJSIZVm$cd5b9ef2647b3e3a4c231ea060e53ce0901bb8094690d51cb77705b094887c2bc84fcdae3c51f49e2f712f83c9d8f5e76141765b8bed9adc0661bee3922a4919','2025-11-02 21:01:52','admin'),(4,'teste2','teste2@teste.com','scrypt:32768:8:1$rwAhAI1MVcf6dRoz$6a3a3d708fe26cce619dfb254753342a44b966729cf7a32d859098e4d12afea603ff4d95ae96f76f975c365f4f0edf7736846797b7cf778d119780c5ae566f7b','2025-11-03 20:03:56','membro'),(6,'gabzz','gabzz@gmail.com','scrypt:32768:8:1$0GqfkHZWv9xAgf22$a9df3a44c657e579ad90a00b2fc158d52299631efc00cd812a414a1d0cd3ac3a555ac964ca8ef1a9fa33d00e1fbc111cb2d26d680692eebcf9bed8951670ae01','2025-11-08 20:20:09','membro');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -174,4 +171,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-11-07 15:24:01
+-- Dump completed on 2025-11-08 17:31:58

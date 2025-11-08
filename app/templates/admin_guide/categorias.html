@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_guide/css/bootstrap.css') }}">
+</head>
+<body>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Criado_em</th>
+      <th scope="col">Buttons</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for categoria in lista_categorias %}
+    <tr>
+        <td>{{ categoria.id }}</td>
+        <td>{{ categoria.nome }}</td>
+        <td>{{ categoria.criado_em }}</td>
+        <td><a href="{{ url_for('painel.deletar_categoria', id=categoria.id) }}" class="btn btn-danger">Deletar</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+
+    <form action="{{ url_for('painel.categorias') }}" method="post">
+        {{ form.hidden_tag() }}
+        {{ form.nome }}
+        {{ form.submit_categoria }}
+    </form>
+</body>
+</html>
