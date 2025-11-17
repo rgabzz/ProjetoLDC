@@ -30,5 +30,22 @@
     </tbody>
   </table>
 
+    <h2>Adicionar item à lista "{{ lista_obj.titulo }}"</h2>
+
+    <form method="POST">
+      {{ form.hidden_tag() }}
+
+      <label>{{ form.nome.label }}</label><br>
+      {{ form.nome(class="form-control") }}<br><br>
+
+      <label>{{ form.quantidade.label }}</label><br>
+      {{ form.quantidade(step="0.01", class="form-control") }}<br><br>
+
+      <label>{{ form.categoria_id.label }}</label><br>
+      {{ form.categoria_id(class="form-control") }}<br><br>
+
+      <button type="submit">Salvar</button>
+    </form>
+
 </body>
 </html>

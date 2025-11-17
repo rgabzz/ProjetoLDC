@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField,EmailField,PasswordField,SubmitField
-from wtforms.validators import DataRequired,Email,Length,EqualTo,NumberRange
-from wtforms import StringField, DecimalField, SelectField, SubmitField
+from wtforms.validators import DataRequired,Email,Length,EqualTo
 
 
 class FormCriarCategoria(FlaskForm):

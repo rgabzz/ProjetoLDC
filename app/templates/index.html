@@ -1,11 +1,214 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Principal</title>
-</head>
-<body>
-    <h1>Está é a página principal!</h1>
-</body>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='index/css/globals.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='index/css/styleguide.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='index/css/style.css') }}" />
+  </head>
+  <body>
+    <div class="JL-PC-tela-home" data-model-id="35:98">
+      <div class="home"></div>
+      <img class="JL-folha" src="{{ url_for('static',filename='index/img/jl-folha.png') }}" />
+      <div class="window-perfil">
+        <img class="img" src="{{ url_for('static',filename='index/img/window-perfil.svg') }}" />
+        <div class="perfil">
+          <div class="div">
+            <div class="foto-perfil"></div>
+            <div class="lucide-user-round"><img class="vector" src="{{ url_for('static',filename='index/img/vector-3.svg') }}" /></div>
+            <div class="text-wrapper">Perfil</div>
+            <div class="usuario">Usuário</div>
+            <div class="nome-usuario">{{ username }}</div>
+          </div>
+          <div class="opes-perfil">
+            <div class="conta">
+              <div class="vector-wrapper"><img class="vector-2" src="{{ url_for('static',filename='index/img/vector-2.svg') }}" /></div>
+              <div class="text-wrapper-2">Conta</div>
+            </div>
+            <div class="listas">
+              <div class="vector-wrapper"><img class="vector-3" src="{{ url_for('static',filename='index/img/vector-1.svg') }}" /></div>
+              <div class="text-wrapper-2">Listas</div>
+            </div>
+            <div class="estoque">
+              <div class="vector-wrapper"><img class="vector-4" src="{{ url_for('static',filename='index/img/vector.svg') }}" /></div>
+              <div class="text-wrapper-3">Estoque</div>
+            </div>
+          </div>
+        </div>
+        <img class="jialist-logo" src="{{ url_for('static',filename='index/img/jialist-logo-2.png') }}" />
+      </div>
+      
+      <div class="window-home">
+        <div class="listas-2">
+          <div class="espao-lista"></div>
+          <div class="add-lista">
+            <div class="add-lista-2"></div>
+            <div class="text-wrapper-4">Adicionar Lista</div>
+            <div class="boto-add-lista">
+              <div class="lucide-plus"><img class="vector-5" src="{{ url_for('static',filename='index/img/vector-4.svg') }}" /></div>
+            </div>
+          </div>
+          <div class="lista">
+            <div class="lista-2"></div>
+            <div class="boto-detalhar"><div class="text-wrapper-5"><a class="text-wrapper-5" href="{{ url_for('list.lista', lista_id=lista_usuario.id) }}">Detalhar</a></div></div>
+            <div class="barra-progresso"><img class="vector-6" src="{{ url_for('static',filename='index/img/vector-2-1.svg') }}" /></div>
+            <div class="info">
+              <div class="text-wrapper-6">{{ lista_usuario.titulo }}</div>
+              <p class="p"></p> <!--3 de 5 itens comprados-->
+              <div class="text-wrapper-7">Criada: {{ lista_usuario.data_criada.strftime('%d/%m/%Y') }}</div>
+            </div>
+          </div>
+          <div class="text-wrapper-8">Listas de compras</div>
+          <div class="boto-ver-tudo"><div class="text-wrapper-9">Ver tudo</div></div>
+        </div>
+
+        <div class="window-estoque">
+          <div class="window-titulo">
+            <div class="window-estoque-min"></div>
+            <div class="text-wrapper-10">Editada em {{lista_estoque.data_ultima_atualizacao.strftime('%d/%m/%Y')}}</div>
+            <div class="div-wrapper"><div class="text-wrapper-9"><a class="text-wrapper-9" href="{{ url_for('list.estoque') }}">Ver tudo</a></div></div>
+            <div class="text-wrapper-11">Estoque</div>
+          </div>
+          <!--<div class="GRADE">
+            <img class="line" src="{{ url_for('static',filename='index/img/line-7.svg') }}" />
+            <img class="line-2" src="{{ url_for('static',filename='index/img/line-4.svg') }}" />
+            <img class="line-3" src="{{ url_for('static',filename='index/img/line-5.svg') }}" />
+            <img class="line-4" src="{{ url_for('static',filename='index/img/line-6.svg') }}" />
+          </div>-->
+          <!--<div class="produto">
+            <div class="no-perecivis">
+              <div class="lucide-bean"><img class="vector-7" src="{{ url_for('static',filename='index/img/vector-5.svg') }}" /></div>
+            </div>
+            
+            <div class="text-wrapper-12">Arroz</div>
+            <div class="contador">
+              <div class="rectangle"></div>
+              <div class="text-wrapper-13">1</div>
+            </div>
+            <div class="text-wrapper-14">02/12/2027</div>
+            <div class="val">
+              <div class="lucide-check"><img class="vector-8" src="{{ url_for('static',filename='index/img/vector-9.svg') }}" /></div>
+            </div>
+          </div>
+          
+          <div class="produto-2">
+            <div class="aougue">
+              <div class="lucide-beef"><img class="vector-9" src="{{ url_for('static',filename='index/img/vector-7.svg') }}" /></div>
+            </div>
+            <div class="text-wrapper-15">Carne de Sol</div>
+            <div class="contador-2">
+              <div class="rectangle"></div>
+              <div class="text-wrapper-13">2</div>
+              <div class="text-wrapper-16">Kg</div>
+            </div>
+            <div class="text-wrapper-17">23/08/2025</div>
+            <div class="no-val">
+              <div class="lucide-x"><img class="vector-10" src="{{ url_for('static',filename='index/img/vector-8.svg') }}" /></div>
+            </div>
+          </div>
+
+          <div class="prdouto">
+            <img class="hortifrti" src="{{ url_for('static',filename='index/img/hortifr-ti.png') }}" />
+            <div class="text-wrapper-18">Maçã</div>
+            <div class="contador-3">
+              <div class="rectangle"></div>
+              <div class="text-wrapper-19">10</div>
+            </div>
+            <div class="text-wrapper-20">19/11/2025</div>
+            <div class="lucide-check-wrapper">
+              <div class="lucide-check"><img class="vector-8" src="{{ url_for('static',filename='index/img/vector-9.svg') }}" /></div>
+            </div>
+          </div>-->
+
+        </div>
+        <div class="categorias">
+          <div class="mais">
+            <div class="lucide-arrow-right"><img class="vector-11" src="{{ url_for('static',filename='index/img/vector-10.svg') }}" /></div>
+          </div>
+          <div class="opes">
+            <div class="peixaria">
+              <div class="ellipse"></div>
+              <div class="lucide-shrimp"><img class="vector-12" src="{{ url_for('static',filename='index/img/vector-11.svg') }}" /></div>
+              <div class="text-wrapper-21">Peixaria</div>
+            </div>
+            <div class="padaria">
+              <div class="ellipse"></div>
+              <div class="lucide-croissant"><img class="vector-13" src="{{ url_for('static',filename='index/img/vector-12.svg') }}" /></div>
+              <div class="text-wrapper-22">Padaria</div>
+            </div>
+            <div class="aougue-2">
+              <div class="ellipse"></div>
+              <div class="img-wrapper"><img class="vector-9" src="{{ url_for('static',filename='index/img/vector-13.svg') }}" /></div>
+              <div class="text-wrapper-23">Açougue</div>
+            </div>
+            <div class="no-perecivis-2">
+              <div class="ellipse-2"></div>
+              <div class="lucide-bean-2"><img class="vector-7" src="{{ url_for('static',filename='index/img/vector-14.svg') }}" /></div>
+              <div class="text-wrapper-24">Não perecíveis</div>
+            </div>
+            <div class="hortifrti-2">
+              <img class="ellipse-3" src="{{ url_for('static',filename='index/img/ellipse-3.svg') }}" />
+              <div class="lucide-apple">
+                <img class="vector-14" src="{{ url_for('static',filename='index/img/vector-15.svg') }}" /> <img class="vector-15" src="{{ url_for('static',filename='index/img/vector-1-1.svg') }}" />
+              </div>
+              <div class="lucide-carrot"><img class="vector-16" src="{{ url_for('static',filename='index/img/vector-16.svg') }}" /></div>
+              <div class="text-wrapper-25">Hortifrúti</div>
+            </div>
+            <div class="todos">
+              <div class="todas"></div>
+              <div class="seleo"></div>
+              <div class="lucide-shopping-bag"><img class="vector-17" src="{{ url_for('static',filename='index/img/vector-17.svg') }}" /></div>
+              <div class="text-wrapper-26">Todos</div>
+            </div>
+          </div>
+          <div class="text-wrapper-27">Navegar por categorias</div>
+        </div>
+        <div class="barra-pesquisa">
+          <div class="lupa">
+            <div class="lucide-search"><img class="vector-18" src="{{ url_for('static',filename='index/img/vector-18.svg') }}" /></div>
+          </div>
+          <div class="buscar">Buscar itens, categorias...</div>
+          <div class="filtar">
+            <div class="lucide-text-align"><img class="vector-19" src="{{ url_for('static',filename='index/img/vector-19.svg') }}" /></div>
+          </div>
+          <div class="duvidas">
+            <div class="ellipse-4"></div>
+            <div class="lucide-circle"><img class="vector-20" src="{{ url_for('static',filename='index/img/vector-20.svg') }}" /></div>
+          </div>
+        </div>
+        <img class="jialist-logo-2" src="{{ url_for('static',filename='index/img/jialist-logo-1.png') }}" />
+        <div class="text-wrapper-8">Ola, {{ username }}!</div>
+      </div>
+      <div class="barra-de-opes">
+        <div class="boto-conta">
+          <div class="lucide-user-round-2"><img class="vector-21" src="{{ url_for('static',filename='index/img/vector-24.svg') }}" /></div>
+          <div class="text-wrapper-28">Conta</div>
+        </div>
+        <div class="boto-listas">
+          <div class="lucide-notepad-text"><img class="vector-22" src="{{ url_for('static',filename='index/img/vector-23.svg') }}" /></div>
+          <div class="text-wrapper-29">Listas</div>
+        </div>
+        <div class="boto-estoque">
+          <div class="lucide-archive"><img class="vector-23" src="{{ url_for('static',filename='index/img/vector-22.svg') }}" /></div>
+          <div class="text-wrapper-30"><a class="text-wrapper-30" href="{{ url_for('list.estoque') }}">Estoque</a></div>
+        </div>
+        <div class="exit">
+          {% if username == 'Visitante' %}
+            <a class="lucide-log-out" href="{{ url_for('auth.login') }}">
+              <img class="vector-24" src="{{ url_for('static',filename='index/img/vector-21.svg') }}" />
+            </a>
+          {% else %}
+            <a class="lucide-log-out" href="{{ url_for('auth.logout') }}">
+              <img class="vector-24" src="{{ url_for('static',filename='index/img/vector-21.svg') }}" />
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="JC-LOGO">
+        <div class="rectangle-2"></div>
+        <img class="jialist-logo-3" src="{{ url_for('static',filename='index/img/jialist-logo-3.png') }}" />
+      </div>
+    </div>
+  </body>
 </html>

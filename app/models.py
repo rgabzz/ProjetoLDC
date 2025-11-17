@@ -83,8 +83,8 @@ class RelacaoItensListas(db.Model):
 
 # Formulários de Login
 from flask_wtf import FlaskForm
-from wtforms import StringField,EmailField,PasswordField,SubmitField
-from wtforms.validators import DataRequired,Email,Length,EqualTo
+from wtforms import StringField,EmailField,PasswordField,SubmitField,FloatField,SelectField
+from wtforms.validators import DataRequired,Email,Length,EqualTo,Optional
 
 class FormLogin(FlaskForm):
     
@@ -99,3 +99,9 @@ class FormCadastro(FlaskForm):
     senha = PasswordField('senha',validators=[DataRequired(),Length(min=1,max=255)])
     confirmar_senha = PasswordField('Confirmar Senha', validators=[DataRequired(),EqualTo('senha', message='As senhas devem coincidir')])
     cadastro_submit = SubmitField('Cadastrar')
+
+class FormCriarItem(FlaskForm):
+    nome = StringField('Nome do Item', validators=[DataRequired(message="O nome é obrigatório.")])
+    quantidade = FloatField('Quantidade', validators=[DataRequired(message="A quantidade é obrigatória.")])
+    categoria_id = SelectField('Categoria', coerce=int, validators=[Optional()])
+    submit = SubmitField('Criar Item')

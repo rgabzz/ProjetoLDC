@@ -1,5 +1,6 @@
 from app.models import Itens,Listas,Categorias,Usuarios,RelacaoItensListas,db
 from flask_login import current_user
+from flask import flash
 from functools import wraps
 from flask import abort,redirect,url_for
 
@@ -15,6 +16,36 @@ def owner_required(f):
 
         return f(*args, **kwargs)
     return decorated_function
+
+def criaritem(form, lista):
+    categoria_escolhida = form.categoria_id.data
+
+    if categoria_escolhida == 0:
+        categoria_escolhida = None
+
+    novo_item = Itens(
+        nome=form.nome.data,
+        quantidade=form.quantidade.data,
+        status='pendente',
+        usuario_id=current_user.id,
+        categoria_id=categoria_escolhida
+    )
+
+    db.session.add(novo_item)
+    db.session.flush()
+
+    relacao = RelacaoItensListas(
+        lista_id=lista.id   ,
+        item_id=novo_item.id
+    )
+
+    db.session.add(relacao)
+    db.session.commit()
+
+    #flash("Item criado com sucesso!", "success")
+    return redirect(url_for('list.lista', lista_id=lista.id))
+
+
 
 def get_estoque():
 
